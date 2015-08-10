@@ -13,6 +13,7 @@
     <link href='/metrics-graphics/dist/metricsgraphics.css' rel='stylesheet' type='text/css'>
     <link href='/metricsgraphics-demo.css' rel='stylesheet' type='text/css'>
 
+    <script src='/jss/jss.js'></script>
     <script src='/jquery/dist/jquery.min.js'></script>
     <script src='/d3/d3.min.js' charset='utf-8'></script>
     <script src="/ace-builds/src/ace.js" charset="utf-8"></script>
@@ -166,9 +167,59 @@
         var mgKey = 'mg-dev',
             editor,
             persisted,
-            defaultCall = 'MG.data_graphic({});'
+            defaultCall = "//modify away!\n"+
+              "MG.data_graphic({\n"+
+              "\ttitle: 'Some Lines',\n"+
+              "\tdescription: 'Yearly happenings on 2 lines between 1945 and 1960.',\n"+
+              "\tdata: JSON.parse($('.data textarea').val()),\n"+
+              "\twidth: 300,\n"+
+              "\theight: 200,\n"+
+              "\ttarget: '.result',\n"+
+              "\tx_accessor: 'year',\n"+
+              "\ty_accessor: 'happenings'\n"+
+            "});",
+            defaultData = [
+              [
+                {
+                  year: "1945",
+                  happenings: 5
+                },
+                {
+                  year: "1950",
+                  happenings: 6
+                },
+                {
+                  year: "1955",
+                  happenings: 10
+                },
+                {
+                  year: "1960",
+                  happenings: 30
+                }
+              ],
+              [
+                {
+                  year: "1945",
+                  happenings: 33
+                },
+                {
+                  year: "1950",
+                  happenings: 22
+                },
+                {
+                  year: "1955",
+                  happenings: 25
+                },
+                {
+                  year: "1960",
+                  happenings: 11
+                }
+              ],
+            ];
 
-        persisted = JSON.parse(localStorage.getItem(mgKey), null, 2) || {};
+        persisted = JSON.parse(localStorage.getItem(mgKey), null, 2) || {
+          data: defaultData
+        };
 
         editor = ace.edit("editor");
         editor.getSession().setMode("ace/mode/javascript");
