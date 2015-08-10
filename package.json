@@ -1,6 +1,10 @@
 {
   "name": "mg-sample-extension",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dandehavilland/mg-sample-extension.git"
+  },
   "authors": [
     "Dan de Havilland <dan@dandehavilland.com>"
   ],

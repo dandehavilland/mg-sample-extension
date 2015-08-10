@@ -9,6 +9,8 @@
     "metrics-graphics",
     "extension"
   ],
+  "homepage": "https://www.github.com/dandehavilland/mg-sample-extension",
+  "main": "dist/mg-sample-extension.js",
   "license": "MIT",
   "ignore": [
     ".DS_Store",
@@ -22,7 +24,11 @@
     "package.json",
     "src",
     "testem.json",
-    "tests"
+    "tests",
+    "**/.*",
+    "bower_components",
+    "test",
+    "README.md"
   ],
   "devDependencies": {
     "metrics-graphics": "git://github.com/dandehavilland/metrics-graphics.git#hooks",
